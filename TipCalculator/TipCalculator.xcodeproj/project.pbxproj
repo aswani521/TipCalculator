@@ -14,6 +14,7 @@
 		A77D85481BBA61E8004D00B6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A77D85471BBA61E8004D00B6 /* Images.xcassets */; };
 		A77D854B1BBA61E8004D00B6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A77D85491BBA61E8004D00B6 /* LaunchScreen.xib */; };
 		A77D85571BBA61E9004D00B6 /* TipCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A77D85561BBA61E9004D00B6 /* TipCalculatorTests.m */; };
+		A7DFE2541BC78D5E00F9D07D /* TipCalculator.gif in Resources */ = {isa = PBXBuildFile; fileRef = A7DFE2531BC78D5E00F9D07D /* TipCalculator.gif */; };
 		A7E8539B1BC7883F0039603C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7E8539A1BC7883F0039603C /* SettingsViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		A77D85501BBA61E8004D00B6 /* TipCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A77D85551BBA61E9004D00B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A77D85561BBA61E9004D00B6 /* TipCalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TipCalculatorTests.m; sourceTree = "<group>"; };
+		A7DFE2531BC78D5E00F9D07D /* TipCalculator.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = TipCalculator.gif; sourceTree = SOURCE_ROOT; };
 		A7E8539A1BC7883F0039603C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		A7E8539C1BC788480039603C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 		A77D853A1BBA61E8004D00B6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A7DFE2531BC78D5E00F9D07D /* TipCalculator.gif */,
 				A77D853B1BBA61E8004D00B6 /* Info.plist */,
 				A77D853C1BBA61E8004D00B6 /* main.m */,
 			);
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DFE2541BC78D5E00F9D07D /* TipCalculator.gif in Resources */,
 				A77D85461BBA61E8004D00B6 /* Main.storyboard in Resources */,
 				A77D854B1BBA61E8004D00B6 /* LaunchScreen.xib in Resources */,
 				A77D85481BBA61E8004D00B6 /* Images.xcassets in Resources */,
