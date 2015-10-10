@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self updateValues];
+    
     // Do any additional setup after loading the view, typically from a nib.
     
     
@@ -43,6 +43,13 @@
     tipToolbar.barStyle = UIBarStyleBlackOpaque;
     tipToolbar.items = [NSArray arrayWithObjects:
                         //1
+                        [[UIBarButtonItem alloc]
+                         initWithTitle:@"CLEAR"
+                         style:UIBarButtonItemStylePlain
+                         target:self
+                         action:@selector(textFieldCleared)],
+
+                        //2
                         [[UIBarButtonItem alloc]
                             initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
                             target:nil
@@ -57,26 +64,48 @@
                         nil];
     [tipToolbar sizeToFit];
      
-    
+    //Attach the DONE button on the top of the keyboard
     self.billTextField.inputAccessoryView = tipToolbar;
     
     //To clear content of textfield when editing starts;
     //Can be set through the UI as well.
-    self.billTextField.clearsOnBeginEditing = YES;
+    //self.billTextField.clearsOnBeginEditing = YES;
+    
+    //Add optional feature of remembering billAmount if app restarts within 10min
+    NSDate *now = [NSDate date];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSDate *lastSavedDate = [defaults objectForKey:@"lastDate"];
+    
+    NSTimeInterval secs = [now timeIntervalSinceDate:lastSavedDate];
+    
+    if (secs < 600) {
+        NSLog(@"Using the last bill value");
+        self.billTextField.text = [NSString stringWithFormat:@"%0.2lf",[defaults floatForKey:@"lastBillAmt"]];
+    } else {
+        // clear the last entered bill amount
+        NSLog(@"Clearing the last bill value");
+        [defaults setFloat:0 forKey:@"lastBillAmt"];
+        [defaults synchronize];
+        
+    }
+    [self updateValues];
+    
     
 }
 
 //Call this when the DONE button is pressed
-- (void)textFieldDone
-{
-    
+- (void)textFieldDone{
     
     //Update values since tip percent or splits might have changed
     [self updateValues];
-    
     [self.billTextField resignFirstResponder];
     
 }
+
+- (void)textFieldCleared{
+    self.billTextField.text  = @"";
+}
+
 
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -91,6 +120,18 @@
     [self.splitCtrl setSelectedSegmentIndex:defaultSplitSegmentIndex];
     
     [self updateValues];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"view will disappear");
+    
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    NSLog(@"view did disappear");
+    
+    //
 }
 
 - (void)didReceiveMemoryWarning {
@@ -113,6 +154,11 @@
     NSArray *tipValues  = @[@(0.1),@(0.15),@(0.2)];
     NSArray *splitValues= @[@(1), @(2), @(3), @(4), @(5)];
     
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    
+    //Get the current date and time
+    NSDate *currentDate      = [NSDate date];
+    
     float tipValue = billAmount*[tipValues[self.tipCtrl.selectedSegmentIndex] floatValue];
     float totalBill = (billAmount + tipValue)/[splitValues[self.splitCtrl.selectedSegmentIndex] floatValue];
     
@@ -124,6 +170,11 @@
     [numberformatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     self.tipAmtLabel.text = [numberformatter stringFromNumber:[[NSNumber alloc]initWithFloat:tipValue]];
     self.billAmtLabel.text = [numberformatter stringFromNumber:[[NSNumber alloc]initWithFloat:totalBill]];
+    
+    
+    [defaults setFloat:billAmount forKey:@"lastBillAmt"];
+    [defaults setObject:currentDate forKey:@"lastDate"];
+    [defaults synchronize];
     
 }
 
