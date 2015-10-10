@@ -16,7 +16,7 @@ The following **required** functionality is complete:
 
 The following **optional** features are implemented:
 * [NO ] UI animations
-* [NO ] Remembering the bill amount across app restarts (if <10mins)
+* [YES ] Remembering the bill amount across app restarts (if <10mins)
 * [YES ] Using locale-specific currency and currency thousands separators.
 * [YES ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
@@ -26,12 +26,17 @@ The following **additional** features are implemented:
 * [YES ] Support for changing default split through settings screen
 * [YES ] Adding "DONE" button to calculate the amount instead of tapping on the screen
 * [YES ] Auto layout of UI Elements
+* [YES ] Added "CLEAR" button to clear bill amount text. 
 
 ## Video Walkthrough 
 
 Here's a walkthrough of implemented user stories:
 
 <img src='https://github.com/aswani521/TipCalculator/blob/master/TipCalculator/TipCalculator.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+<img src='https://github.com/aswani521/TipCalculator/blob/3053de278bffc82a753aa79a2872a04dfb6bdb17/TipCalculator/TipCalculator_RemAmount.gif'  title='App_with_updates' width='' alt='Video Walkthrough' />
+
+<img src='https://github.com/aswani521/TipCalculator/blob/3053de278bffc82a753aa79a2872a04dfb6bdb17/TipCalculator/TipCalculator_RemAmount_1.gif'  title='App_with_updates' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
