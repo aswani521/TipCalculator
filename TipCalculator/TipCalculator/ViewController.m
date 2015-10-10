@@ -34,6 +34,10 @@
     [self updateValues];
     // Do any additional setup after loading the view, typically from a nib.
     
+    
+    //To make the keyboard visible all the time
+    [self.billTextField becomeFirstResponder];
+    
     //Add a "DONE" button on top of the keyboard
     UIToolbar *tipToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
     tipToolbar.barStyle = UIBarStyleBlackOpaque;
